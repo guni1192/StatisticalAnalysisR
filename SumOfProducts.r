@@ -30,8 +30,12 @@ v2 <- heihowa2 / length(arr2)
 # 標準偏差2
 s2 <- sqrt(v2)
 
-# 相関係数 <- 標本共分散 / (標準偏差1 * 標準偏差2)
-sokankesu <- kyobunsan / ( s1 * s2 )
+# ピアソンの積率相関係数 <- 標本共分散 / (標準偏差1 * 標準偏差2)
+sokankesu1 <- kyobunsan / ( s1 * s2 )
+# ピアソンの積率相関係数はcor(data1, data2)で求めることができる
+sokankesu2 <- cor(arr1, arr2)
 
 # 順位
-rank(arr1)
+rank1 = rank(arr1)
+# スピアマンの順位相関係数
+rank2 = cor(arr1, arr2, method="spearman")
